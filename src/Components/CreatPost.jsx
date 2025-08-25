@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { Button, Input, Textarea } from "@heroui/react";
-import img from "../assets/img1.png";
 import CreatPostAPI from "../services/CreatPostAPI";
 
 export default function CreatPost({ GetAllPostsAPI }) {

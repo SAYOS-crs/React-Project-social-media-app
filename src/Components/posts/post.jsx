@@ -1,8 +1,8 @@
 import React from "react";
-import PostHeader from "./postheader";
+import PostHeader from "./PostHeader";
 import PostFootder from "./PostFootder";
-import PostBody from "./postbody";
-import PostComments from "./postComments";
+import PostBody from "./PostBody";
+import PostComments from "./PostComments";
 import { Button } from "@heroui/react";
 import { useState } from "react";
 export default function AllPosts({

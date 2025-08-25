@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import PostHeader from "./postheader";
 import HeaderCard from "./HeaderCard";
 import ModelMenu from "../ModelMenu";
 import { Button, Input, useDisclosure } from "@heroui/react";
@@ -7,7 +6,6 @@ import { TokenContext } from "../../context/AuthContextComponent";
 import DropDownMenu from "../DropDownMenu";
 import { DeleteAPIComment } from "../../services/DeleteAPI";
 import UpdateCommentAPI from "../../services/UpdateCommentAPI";
-import { color } from "framer-motion";
 
 export default function PostComments({
   CallSingelAPI,
