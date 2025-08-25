@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
-import GetFeedAPI from "../services/GetFeedAPI.JS";
+import GetFeedAPI from "../services/GetFeedAPI.js";
 import AllPosts from "../Components/posts/post";
 import LoodingPage from "../Components/LoodingPage";
 import CreatPost from "../Components/CreatPost";
