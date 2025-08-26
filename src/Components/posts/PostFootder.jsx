@@ -3,7 +3,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PostNewComment from "../../services/PostNewComment";
 
-export default function PostFootder({ GetAllPostsAPI, post, PostID }) {
+export default function PostFootder({
+  CallSingelAPI,
+  GetAllPostsAPI,
+  post,
+  PostID,
+}) {
   const Navigate = useNavigate();
   const [IsValue, setIsValue] = useState("");
   const [IsErorr, setIsErorr] = useState(false);
@@ -13,13 +18,14 @@ export default function PostFootder({ GetAllPostsAPI, post, PostID }) {
     setIsLooding(true);
     if (IsValue === "") {
       setIsErorr(" Cant Supmit Empty Comment");
-      setIsLooding(false);
     } else {
-      const res = await PostNewComment(IsValue, PostID);
-      setIsValue("");
-      GetAllPostsAPI();
-      setIsLooding(false);
+      if (location.pathname.split("/")[1] === "post-detals") {
+        const res = await PostNewComment(IsValue, PostID);
+        setIsValue("");
+        await CallSingelAPI();
+      }
     }
+    setIsLooding(false);
   }
 
   return (
@@ -135,7 +141,8 @@ export default function PostFootder({ GetAllPostsAPI, post, PostID }) {
             placeholder="Comment..."
             value={IsValue}
             onChange={(e) => {
-              setIsValue(e.target.value), setIsErorr(false);
+              setIsValue(e.target.value);
+              setIsErorr(false);
             }}
             isInvalid={IsErorr}
             errorMessage={IsErorr}
@@ -147,7 +154,8 @@ export default function PostFootder({ GetAllPostsAPI, post, PostID }) {
             isLoading={IsLooding}
             onPress={SupmitComment}
           >
-            Supmit
+            {" "}
+            Supmit{" "}
           </Button>
         </div>
       </div>

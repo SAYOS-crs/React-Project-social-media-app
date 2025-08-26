@@ -36,6 +36,7 @@ export default function AllPosts({
         <PostBody post={post} />
 
         <PostFootder
+          CallSingelAPI={CallSingelAPI}
           post={post}
           GetAllPostsAPI={GetAllPostsAPI}
           PostID={post._id}
