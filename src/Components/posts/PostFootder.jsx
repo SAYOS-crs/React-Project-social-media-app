@@ -23,6 +23,10 @@ export default function PostFootder({
         const res = await PostNewComment(IsValue, PostID);
         setIsValue("");
         await CallSingelAPI();
+      } else {
+        const res = await PostNewComment(IsValue, PostID);
+        setIsValue("");
+        GetAllPostsAPI();
       }
     }
     setIsLooding(false);
