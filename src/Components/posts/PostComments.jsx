@@ -18,13 +18,19 @@ export default function PostComments({
   const [SwitchEditeMode, setSwitchEditeMode] = useState(false);
   const [EditeCountrol, setEditeCountrol] = useState(CommentDetals.content);
   const [UPdateing, setUPdateing] = useState(false);
+
   async function DeleteingComment(onClose) {
     setIsLooding(true);
     const res = await DeleteAPIComment(CommentDetals._id);
     console.log(res);
     if (res.message == "success") {
-      await GetAllPostsAPI();
-      onClose();
+      if (location.pathname.split("/")[1] === "post-detals") {
+        await CallSingelAPI(location.pathname.split("/")[2]);
+        onClose();
+      } else {
+        await GetAllPostsAPI();
+        onClose();
+      }
     }
     setIsLooding(false);
   }
