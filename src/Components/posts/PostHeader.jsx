@@ -8,11 +8,13 @@ import DropDownMenu from "../DropDownMenu";
 import ModelMenu from "../ModelMenu";
 import HeaderCard from "./HeaderCard";
 import DeletePostAPI from "../../services/DeleteAPI";
+import { useNavigate } from "react-router-dom";
 
 export default function PostHeader({ userinfo, GetAllPostsAPI, PostID, date }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const { userData } = useContext(TokenContext);
   const [IsLooding, setIsLooding] = useState(false);
+  const Navigat = useNavigate();
 
   async function DeleteingPost(onClose) {
     setIsLooding(true);
@@ -20,8 +22,14 @@ export default function PostHeader({ userinfo, GetAllPostsAPI, PostID, date }) {
     console.log(res);
 
     if (res.message === "success") {
-      await GetAllPostsAPI();
-      onClose();
+      if (location.pathname.split("/")[1] === "post-detals") {
+        console.log(location.pathname.split("/")[1]);
+        Navigat("/");
+        onClose();
+      } else {
+        await GetAllPostsAPI();
+        onClose();
+      }
     }
     setIsLooding(false);
   }

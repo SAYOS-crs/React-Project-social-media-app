@@ -43,7 +43,17 @@ export default function Navbar() {
           ACME
         </NavLink>
       </NavbarBrand>
-
+      <NavbarContent justify="center">
+        <NavLink
+          to={"/Profile"}
+          className={
+            "text-xl text-blue-500 hover:text-blue-800 transition-colors "
+          }
+        >
+          {" "}
+          Profile{" "}
+        </NavLink>
+      </NavbarContent>
       <NavbarContent justify="end">
         {isloggedin ? (
           <NavbarItem>

@@ -9,8 +9,9 @@ import Login from "./pages/Auth/Login.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute.jsx";
 import ProtectedAuth from "./ProtectedRoute/ProtectedAuth.jsx";
-import AboutPage from "./pages/AboutPage.jsx";
+
 import PageDetals from "./pages/PageDetals.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
 
 export default function App() {
   const root = createBrowserRouter([
@@ -27,10 +28,10 @@ export default function App() {
           ),
         },
         {
-          path: "About",
+          path: "Profile",
           element: (
             <ProtectedRoute>
-              <AboutPage />
+              <ProfilePage />
             </ProtectedRoute>
           ),
         },
