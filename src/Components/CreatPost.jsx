@@ -7,7 +7,7 @@ export default function CreatPost({ GetAllPostsAPI }) {
   const [ImgFile, setImgFile] = useState(null);
   const [imgURL, setimgURL] = useState(null);
   const [IsLooding, setIsLooding] = useState(false);
-  const [PostCreation, setOpenPostCreation] = useState(false);
+  const [PostCreation, setPostCreation] = useState(false);
   const [successMassage, setsuccessMassage] = useState(false);
   const [ErorrMassage, setErorrMassage] = useState(false);
 
@@ -61,6 +61,7 @@ export default function CreatPost({ GetAllPostsAPI }) {
         ClearPostCreation();
         GetAllPostsAPI();
         setsuccessMassage(false);
+        setPostCreation(false);
       }, 1000);
     }
   }
@@ -177,7 +178,7 @@ export default function CreatPost({ GetAllPostsAPI }) {
           </form>
         ) : (
           <button
-            onClick={() => setOpenPostCreation(true)}
+            onClick={() => setPostCreation(true)}
             className="bg-gray-200 w-full text-left p-4 rounded-2xl text-gray-400 hover:bg-gray-300 transition-all duration-400 "
           >
             Creat a Post ... ?
